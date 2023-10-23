@@ -128,3 +128,17 @@ step "display-rest-api-id" {
         worker_pool = "hosted-ubuntu"
     }
 }
+
+step "run-a-script" {
+    name = "Run a Script"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.Script.ScriptBody = "echo \"hi\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+        worker_pool = "hosted-windows"
+    }
+}
